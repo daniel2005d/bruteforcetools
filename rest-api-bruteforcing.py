@@ -1,11 +1,12 @@
+import os
 import sys
 import requests
 import json
 import argparse
 
 parser = argparse.ArgumentParser(description='Intenta descubri mediante fuerza bruto los servicios REST expuestos')
-parser.add_argument('--url', dest='Url')
-parser.add_argument('--file',dest='Diccionario')
+parser.add_argument('-u','--url',  help='Direccion del dominio de destino')
+parser.add_argument('-f','--file',help='Ubicacion del diccionario con los posibles verbos')
 
 print("""
                  _   _____  ______  _____ _______ 
@@ -19,6 +20,7 @@ print("""
 
 """)
 print('')
+os.system('clear')
 args = parser.parse_args()
 servicios = open(args.Diccionario)
 for s in servicios:
@@ -36,6 +38,7 @@ for s in servicios:
               print(chr(27) + '[0;31m' +ex + chr(27)+'[0m')
               print(response)
               pass
+
 
 
 
